@@ -9,6 +9,10 @@ $DocPlanName  = $data['DocPlanName']  ?? '';
 $UserID       = $data['UserID']       ?? '';
 $DocRefDate   = $data['DocRefDate']   ?? '';
 $IdxNo        = $data['IdxNo']        ?? '';
+$AmountNet    = $data['AmountNet']    ?? 0 ;
+$AmountExp    = $data['AmountExp']    ?? 0 ;
+$AmountInc    = $data['AmountInc']    ?? 0 ;
+$CountItem    = $data['CountItem']    ?? 0 ;
 $CreatedDate  = $data['CreatedDate']  ?? '';
 $CreatedBy    = $data['CreatedBy']    ?? '';
 $UpdateDate   = $data['UpdateDate']   ?? '';
@@ -32,12 +36,13 @@ $insert_sql = "INSERT INTO dbtplanhed
     (DocRefID, DocPlanName, UserID, DocRefDate, IdxNo,
      AmountNet, AmountExp, AmountInc, CountItem,
      CreatedDate, CreatedBy, UpdateDate, UpdateBy, PlanType)
-    VALUES (?,?,?,?,?, 0,0,0,0, ?,?,?,?,?)";
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 $stmt = $conn->prepare($insert_sql);
 $stmt->bind_param(
-    "ssssssssss",
+    "sssssiiiisssss",
     $DocRefID, $DocPlanName, $UserID, $DocRefDate, $IdxNo,
+    $AmountNet, $AmountExp, $AmountInc, $CountItem,
     $CreatedDate, $CreatedBy, $UpdateDate, $UpdateBy, $PlanType
 );
 
