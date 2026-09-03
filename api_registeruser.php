@@ -17,7 +17,7 @@ elseif (empty($email)) {
 }
 
 // Cek apakah username sudah ada
-$check_sql = "SELECT * FROM dbmUser WHERE UserID = ?";
+$check_sql = "SELECT * FROM dbmuser WHERE UserID = ?";
 $stmt = $conn->prepare($check_sql);
 $stmt->bind_param("s", $userid);
 $stmt->execute();
@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // Karena UserID bukan auto increment, kita isi sama dengan username
-$insert_sql = "INSERT INTO dbmUser (UserID, UserName, Password, Email, IsLogin, IsMenu) VALUES (?, ?, ?, ?, 1, 1)";
+$insert_sql = "INSERT INTO dbmuser (UserID, UserName, Password, Email, IsLogin, IsMenu) VALUES (?, ?, ?, ?, 1, 1)";
 $stmt = $conn->prepare($insert_sql);
 $stmt->bind_param("ssss", $userid, $username, $hashed_password, $email);
 
