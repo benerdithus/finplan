@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$user = "dsf-kiki";
-$pass = "dsf-1data";
-$db   = "dbcfinancialplan";
+$user = "u765019721_kiki";
+$pass = "Dsf-1data";
+$db   = "u765019721_finplan";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
