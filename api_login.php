@@ -9,7 +9,7 @@ $email = $_POST['Email'] ?? '';
 $response = [];
 
 // cek user
-$sql = "SELECT * FROM dbmUser WHERE UserID=? LIMIT 1";
+$sql = "SELECT * FROM dbmuser WHERE UserID=? LIMIT 1";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "s", $userid);
 mysqli_stmt_execute($stmt);
