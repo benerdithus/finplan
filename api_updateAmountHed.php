@@ -3,9 +3,10 @@ require_once "dbconnect.php";
 
 $DocRefID = $_POST['DocRefID'];
 $AmountExp = $_POST['AmountExp'];
+$AmountNet = $_POST['AmountNet'];
 
 $query = "UPDATE dbtplanhed 
-          SET AmountExp = '$AmountExp'
+          SET AmountExp = '$AmountExp', AmountNet = '$AmountNet'
           WHERE DocRefID = '$DocRefID'";
 
 if (mysqli_query($conn, $query)) {
